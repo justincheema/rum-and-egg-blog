@@ -7,15 +7,20 @@ app.controller("AddNewPostController", ["$scope", "$location", "$rootScope", fun
 		$scope.subjectTextFieldLabel = "Subject";
 		$scope.contentTextAreaLabel = "Content";
 		$scope.submitButtonLabel = "Submit";
+		$scope.cancelButtonLabel = "Cancel";
 
 		$scope.addNewPost = function() {
 			$rootScope.postList.push({
-				id: 1,
+				id: $rootScope.postList.length,
 				author: "Me for now",
-				time: moment().format("YYYY-MM-DD HH:mm"),
+				date: moment().format("YYYY-MM-DD HH:mm"),
 				subject: $scope.PostSubject,
 				content: $scope.PostContent
 			});
+			$location.path("/blog");
+		}
+
+		$scope.cancelAction = function() {
 			$location.path("/blog");
 		}
 }]);

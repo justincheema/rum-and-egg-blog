@@ -1,7 +1,7 @@
 'use strict'
 
 // Declare app level module 
-var app = angular.module('RumAndEggBlogApp', ['ngRoute']);
+var app = angular.module('RumAndEggBlogApp', ['ngRoute','ngTable']);
 
 app.config(['$routeProvider', 
 	function($routeProvider) {

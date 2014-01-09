@@ -1,11 +1,24 @@
 <div class="container-fluid">
 <div class="jumbotron">
 	
-	<a href="#addNewPost" class="btn btn-primary btn-lg active" role="button">{{addPostButtonLabel}}</a>
+	<p><h2 class="text-center">{{blogTitle}}</h2></p>
+	
+	<div>
+		<a href="#addNewPost" class="btn btn-primary btn-lg active" role="button">{{addPostButtonLabel}}</a>
+	</div>
 
-	<ul>
-		<li ng-repeat="post in postList">{{post.subject}} {{post.content}}</li>
-	</ul>
+	<p><h3 class="text-left">{{currentPostsHeader}}</h3></p>
+
+	<div>
+		<table ng-table="tableParams" class="table table-hover">
+			<tr ng-repeat="post in postList">
+				<td data-title="'Author'" class="text-center"><a href="#addNewPost:{{post.id}}">{{post.author}}</a></td>
+				<td data-title="'Date'" class="text-center">{{post.date}}</td>
+				<td data-title="'Subject'" class="text-center">{{post.subject}}</td>
+				<td data-title="'Content'" class="text-center">{{post.content}}</td>
+			</tr>
+		</table>
+	</div>
 
 </div>
 </div>

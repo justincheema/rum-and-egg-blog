@@ -13,12 +13,10 @@
 		</div>
 		
 		<button type="submit" class="btn btn-primary">{{submitButtonLabel}}</button>
+
+		<button type="button" class="btn btn-danger" ng-click="cancelAction()">{{cancelButtonLabel}}</button>
 		
 	</form>
-
-	<ul>
-	    <a ng-repeat="post in postList">{{post.subject}} {{post.content}}</a>
-	</ul>
 
 </div>
 </div>

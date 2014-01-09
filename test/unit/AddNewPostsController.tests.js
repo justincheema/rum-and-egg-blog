@@ -25,6 +25,10 @@ describe('AddNewPostController', function(){
         expect(scope.submitButtonLabel).toBe("Submit");
     });
 
+    it('should have page label text = "cancelButtonLabel"', function() {
+        expect(scope.cancelButtonLabel).toBe("Cancel");
+    });
+
     it('should have 1 default post already populated', function() {
         expect(scope.postList.length).toBe(1);
     });

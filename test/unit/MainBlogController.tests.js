@@ -9,8 +9,16 @@ describe('MainBlogController', function(){
         $controller('MainBlogController', {$scope: scope});
     }));
 
+    it('should have button label text = "Justin\'s Rum and Egg Blog!"', function() {
+        expect(scope.blogTitle).toBe("Justin's Rum and Egg Blog!");
+    });
+
     it('should have button label text = "Add New Post"', function() {
         expect(scope.addPostButtonLabel).toBe("Add New Post");
+    });
+
+    it('should have button label text = "Current posts"', function() {
+        expect(scope.currentPostsHeader).toBe("Current posts");
     });
 
     it('should have 1 default post already populated', function() {
