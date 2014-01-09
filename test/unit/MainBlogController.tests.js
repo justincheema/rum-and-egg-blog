@@ -8,7 +8,13 @@ describe('MainBlogController', function(){
         scope = $rootScope.$new();
         $controller('MainBlogController', {$scope: scope});
     }));
-    it('should have variable text = "This is the main blog screen"', function() {
-        expect(scope.message).toBe("This is the main blog screen");
+
+    it('should have button label text = "Add New Post"', function() {
+        expect(scope.addPostButtonLabel).toBe("Add New Post");
     });
+
+    it('should have 1 default post already populated', function() {
+        expect(scope.postList.length).toBe(1);
+    });
+
 });

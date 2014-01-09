@@ -1,7 +1,11 @@
-<div>
-    <ul class="nav">
-        <li><a href="#addNewPost"> Add New Post </a></li>
-    </ul>
+<div class="container-fluid">
+<div class="jumbotron">
+	
+	<a href="#addNewPost" class="btn btn-primary btn-lg active" role="button">{{addPostButtonLabel}}</a>
 
-    {{message}}
+	<ul>
+		<li ng-repeat="post in postList">{{post.subject}} {{post.content}}</li>
+	</ul>
+
+</div>
 </div>
