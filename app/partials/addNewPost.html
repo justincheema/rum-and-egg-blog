@@ -4,6 +4,8 @@
 		<h2 class="col-md-2">{{addNewPostPageLabel}}</h2>
 	</div>
 
+	<p>Current User: {{currentUser.name}}</p>
+
 	<form ng-submit="addNewPost()">
 		<div class="form-group row">
 			<label class="col-md-1">{{subjectTextFieldLabel}}</label>
@@ -22,5 +24,3 @@
 
 </div>
 </div>
-
-{{postList.length}}

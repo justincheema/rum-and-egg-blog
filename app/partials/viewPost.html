@@ -4,6 +4,8 @@
 		<h2 class="col-md-2">{{viewPostPageLabel}}</h2>
 	</div>
 
+	<p>Current User: {{currentUser.name}}</p>
+
 	<div class="row">
 		<label class="col-md-1">{{authorLabel}}</label><span>{{post.author}}</span>
 	</div>
@@ -30,7 +32,7 @@
 	
 	<div ng-switch on="view">
 		<div class="row" ng-switch-when="viewPost">
-			<button type="button" class="btn btn-primary" ng-click="updatePost()">{{updatePostButtonLabel}}</button>
+			<button ng-show="currentUser.id === post.authorId" type="button" class="btn btn-primary" ng-click="updatePost()">{{updatePostButtonLabel}}</button>
 
 			<button type="button" class="btn btn-primary" ng-click="addComment()">{{addCommentButtonLabel}}</button>
 
@@ -62,8 +64,8 @@
 						<td data-title="'Author'" class="text-center">{{comment.commentAuthor}}</td>
 						<td data-title="'Date'" class="text-center">{{comment.commentDate}}</td>
 						<td data-title="'Comment'" class="text-center">{{comment.text}}</td>
-						<td data-title="" class="text-center"><button type="button" class="btn btn-primary" ng-click="editComment(comment.commentId)">{{editButtonLabel}}</button></td>
-						<td data-title="" class="text-center"><button type="button" class="btn btn-primary" ng-click="deleteComment(comment.commentId)">{{deleteButtonLabel}}</button></td>
+						<td data-title="" class="text-center"><button ng-show="currentUser.id === comment.commentAuthorId" type="button" class="btn btn-primary" ng-click="editComment(comment.commentId)">{{editButtonLabel}}</button></td>
+						<td data-title="" class="text-center"><button ng-show="(currentUser.id === comment.commentAuthorId) || (currentUser.id === post.authorId)" type="button" class="btn btn-primary" ng-click="deleteComment(comment.commentId)">{{deleteButtonLabel}}</button></td>
 					</tr>
 				</table>
 			</div>
@@ -71,7 +73,7 @@
 		<div class="row" ng-switch-when="addComment">
 			<br>
 			<label class="col-md-1">{{commentTextAreaLabel}}</label>
-			<textarea rows="3" placeholder="Enter comment"></textarea>
+			<textarea rows="3" ng-model="post.comments.comment" placeholder="Enter comment"></textarea>
 		</div>
 		<div class="row" ng-switch-when="editComment">
 			<br>
@@ -82,22 +84,3 @@
 
 </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{{view}}
-{{editCommentId}}

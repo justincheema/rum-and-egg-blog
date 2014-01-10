@@ -1,0 +1,31 @@
+<div class="container-fluid">
+<div class="jumbotron">
+	<div class="row">
+		<h2 class="col-md-3">{{addNewUserPageLabel}}</h2>
+	</div>
+
+	<form ng-submit="addNewUser()">
+		<div class="form-group row">
+			<label class="col-md-1">{{nameFieldLabel}}</label>
+			<input type="text" ng-model="username" placeholder="Name"></input>
+		</div>
+		<div class="form-group row">
+			<label class="col-md-1">{{passwordFieldLabel}}</label>
+			<input type="text" ng-model="userpassword" placeholder="Password"></input>
+		</div>
+		<div class="form-group row">
+			<label class="col-md-1">{{roleFieldLabel}}</label>
+			<div class="input-group">
+			<input type="radio" name="role" ng-model="userrole" value="Reader" checked>Reader</input>
+			<input type="radio" name="role" ng-model="userrole" value="Author">Author</input>
+			</div>
+		</div>
+		
+		<button type="submit" class="btn btn-primary">{{submitButtonLabel}}</button>
+
+		<button type="button" class="btn btn-danger" ng-click="cancelAction()">{{cancelButtonLabel}}</button>
+		
+	</form>
+
+</div>
+</div>

@@ -15,6 +15,12 @@ describe('RumAndEggBlogApp', function(){
 	    	expect($route.routes['/viewPost/:postId'].templateUrl).toBe('partials/viewPost.html');
 	    	expect($route.routes['/viewPost/:postId'].controller).toBe('ViewPostController');
 
+	    	expect($route.routes['/viewUsers'].templateUrl).toBe('partials/viewUsers.html');
+	    	expect($route.routes['/viewUsers'].controller).toBe('ViewUsersController');
+
+	    	expect($route.routes['/addNewUser'].templateUrl).toBe('partials/addNewUser.html');
+	    	expect($route.routes['/addNewUser'].controller).toBe('AddNewUserController');
+
 	    	expect($route.routes[null].redirectTo).toEqual('/blog')
     })
     });

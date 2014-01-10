@@ -17,6 +17,8 @@ app.controller("ViewPostController", ["$scope", "$location", "$rootScope", "$rou
 		$scope.commentsLabel = "Comments";
 		$scope.id = $routeParams.postId;
 
+		$scope.currentUser = $rootScope.currentUser;
+
 		var post = $rootScope.postList[$routeParams.postId];
 		$scope.post = post;
 
@@ -52,7 +54,8 @@ app.controller("ViewPostController", ["$scope", "$location", "$rootScope", "$rou
 				
 			$scope.post.comments.push({
 				commentId: $scope.post.comments.length,
-				commentAuthor: "New Author",
+				commentAuthor: $rootScope.currentUser.name,
+				commentAuthorId: $rootScope.currentUser.id,
 				commentDate: moment().format("YYYY-MM-DD HH:mm"),
 				text: $scope.post.comments.comment
 			});
@@ -74,7 +77,7 @@ app.controller("ViewPostController", ["$scope", "$location", "$rootScope", "$rou
 		$scope.editComment = function(id) {
 			$scope.view = "editComment";
 			$scope.editCommentId = id;
-			$scope.post.comments.comment = $scope.post.comments[id].text
+			$scope.post.comments.comment = $scope.post.comments[id].text;
 		}
 
 		$scope.doneEditingComment = function(id) {

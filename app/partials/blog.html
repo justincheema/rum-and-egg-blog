@@ -1,15 +1,34 @@
+<nav class="navbar navbar-default">
+	<p class="col-md-2 navbar-left"><a href="#viewUsers" class="btn btn-primary active" role="button">{{listUsersButton}}</a></p>
+	<form class="navbar-form navbar-right" role="navigation" ng-submit="loginUser(username, password)">
+    	<div class="form-group">
+    		<label>{{nameLabel}}</label>
+        	<input ng-model="username" type="text" placeholder="Name">
+        </div>
+        <div class="form-group">
+        	<label>{{passwordLabel}}</label>
+        	<input ng-model="password" type="text" placeholder="Password">
+    	</div>
+      	<button type="submit" class="btn btn-primary">Login</button>
+      	<span class="text-danger">{{incorrectLogin}}</span>
+    </form>
+</nav>
 <div class="container-fluid">
 <div class="jumbotron">
+
+	<p>Current User: {{currentUser.name}}</p>
 	
 	<p><h2 class="text-center">{{blogTitle}}</h2></p>
 	
-	<div>
+	<div ng-hide="currentUser.role === 'Reader'">
 		<a href="#addNewPost" class="btn btn-primary btn-lg active" role="button">{{addPostButtonLabel}}</a>
 	</div>
 
-	<p><h3 class="text-left">{{currentPostsHeader}}</h3></p>
-	<p>{{editPostMessage}}</p>
-
+	<div class="row">
+		<span><h3 class="text-left">{{currentPostsHeader}}</h3></span>
+		<p>{{editPostMessage}}</p>
+	</div>
+		
 	<div>
 		<table ng-table="tableParams" class="table table-hover">
 			<tr ng-repeat="post in postList">
@@ -17,7 +36,7 @@
 				<td data-title="'Date'" class="text-center"><a href="#viewPost/{{post.id}}">{{post.date}}</a></td>
 				<td data-title="'Subject'" class="text-center"><a href="#viewPost/{{post.id}}">{{post.subject}}</a></td>
 				<td data-title="'Content'" class="text-center"><a href="#viewPost/{{post.id}}">{{post.content}}</a></td>
-				<td data-title="" class="text-center"><button type="button" class="btn btn-primary" ng-click="deletePost(post.id)">{{deleteButtonLabel}}</button></td>
+				<td data-title="" class="text-center"><button ng-show="currentUser.id === post.authorId" type="button" class="btn btn-primary" ng-click="deletePost(post.id)">{{deleteButtonLabel}}</button></td>
 			</tr>
 		</table>
 	</div>

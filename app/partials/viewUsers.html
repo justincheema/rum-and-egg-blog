@@ -1,0 +1,19 @@
+<div class="container-fluid">
+<div class="jumbotron">
+	<div>
+		<div class="row">
+			<a href="#addNewUser" class="btn btn-primary active" role="button">{{addUserButtonLabel}}</a>
+
+			<button type="button" class="btn btn-danger" ng-click="cancelAction()">{{cancelButtonLabel}}</button>
+		</div>
+		
+		<table ng-table="userTableParams" class="table table-hover">
+			<tr ng-repeat="user in userList">
+				<td data-title="'Name'" class="text-center">{{user.name}}</td>
+				<td data-title="'Role'" class="text-center">{{user.role}}</td>
+				<td data-title="'Date Created'" class="text-center">{{user.dateCreated}}</td>
+			</tr>
+		</table>
+	</div>
+</div>
+</div>

@@ -12,7 +12,8 @@ app.controller("AddNewPostController", ["$scope", "$location", "$rootScope", fun
 		$scope.addNewPost = function() {
 			$rootScope.postList.push({
 				id: $rootScope.postList.length,
-				author: "Me for now",
+				author: $rootScope.currentUser.name,
+				authorId: $rootScope.currentUser.id,
 				date: moment().format("YYYY-MM-DD HH:mm"),
 				subject: $scope.PostSubject,
 				content: $scope.PostContent,
