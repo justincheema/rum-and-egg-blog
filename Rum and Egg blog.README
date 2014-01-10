@@ -1,0 +1,102 @@
+Rum and Egg blog requirements
+
+As with most projects, the requirements were not fully complete. Normally this would be something I would approach the Product Manager on to receive further clarification, but since I received this project from an HR manager I will make my own assumptions and note them below. Attempts will be made to make sure that incorrect assumptions can be changed easily. 
+
+Done when:
+
+    Users
+        Users can view readers or authors ('Reader' and 'Author' are users themselves) 
+        Readers cannot create new posts ('Reader' level users cannot create new posts)
+
+    Posts
+        Posts can be created, updated and deleted by owner (By the creating 'Author' level user)
+        Posts can be read by anyone 
+        Posts can be commented on (assuming anyone can comment on a post)
+        (What is a post? A post is an entry which has a creator, date, subject and content.)
+    
+    Comments
+        Newly created comments by poster appear without post page without reloading
+        Comments can be updated and deleted by user (by user I'm assuming this means the user that made the comment)
+        Comments can be deleted by owner ('by owner' means the author of the post)
+        (What is a comment? A comment is an entry bound to a post which contains a creator, date and content. I see value in including if the commenter is a 'Reader' or 'Author')
+    
+    Blog
+        Displays a list of all posts, categorized by date. (This should be expanded on. All appropriate columns should be sortable)
+
+Project
+    This was my first project in Angular so although I'm sure I could get the site running pretty well based on my current knowledge, I feel it would be better to investigate different design patterns in Angular to get the job done better. Also, it would be nice to know more of the features offered and how they worked.
+
+    I used angular-seed to get the framework for Angular with a Testacular (Karma) test suite. It also included an end-to-end test runner which I would've liked to have used, but the tests would not run properly out of the box and I didn't want to waste too much time troubleshooting what was wrong. Added Twitter Bootstrap for looks, moment.js for date stuff and ng-table to handle my tables.
+
+    Also, I wanted to use Firebase for the authentication as it seemed really good, but I had issues with dependency injection and had to resort to a very simple and awkward login system.
+
+    I would've really like to re-use the post template for adding/viewing and updating. It seems that Angular would be good at this, but I'll have to separate all this due to time constraints.
+
+
+To Run
+    The easiest way to run the project is to install NodeJs and run scripts/web-sever.js. Then you can hit http://localhost:8000/app/index.html in a browser. Similarly, unit tests are run by the script/test.sh script.
+
+    There is NO data persistence on this website. I have some test data which is generated from MainBlogController.js and can be changed if you want. Here's the starting test data I used for your reference: 
+
+        $rootScope.postList = [
+            {
+                id: 0,
+                author: "Rodney Og",
+                authorId: 3,
+                date: moment().format("YYYY-MM-DD HH:mm"),
+                subject: "Test Data",
+                content: "This is test data for the content text area. Blah blah blah.",
+                comments: [
+                {
+                    commentId: 0,
+                    commentAuthor: "Justin",
+                    commentAuthorId: 2,
+                    commentDate: moment().format("YYYY-MM-DD HH:mm"),
+                    text: "This is a comment"
+                },
+                {
+                    commentId: 1,
+                    commentAuthor: "Sarah",
+                    commentAuthorId: 1,
+                    commentDate: moment().format("YYYY-MM-DD HH:mm"),
+                    text: "Your last comment was dumb."
+                },
+                {
+                    commentId: 2,
+                    commentAuthor: "Guest",
+                    commentAuthorId: 0,
+                    commentDate: moment().format("YYYY-MM-DD HH:mm"),
+                    text: "Guest guess"
+                }]
+            }
+        ];
+    $rootScope.userList = [
+            {
+                id: 0,
+                name: "Guest",
+                password: "1234",
+                role: "Reader",
+                dateCreated: moment().format("YYYY-MM-DD HH:mm"),
+            },
+            {
+                id: 1,
+                name: "Sarah",
+                password: "1234",
+                role: "Author",
+                dateCreated: moment().format("YYYY-MM-DD HH:mm"),
+            },
+            {
+                id: 2,
+                name: "Justin",
+                password: "1234",
+                role: "Reader",
+                dateCreated: moment().format("YYYY-MM-DD HH:mm"),
+            },
+            {
+                id: 3,
+                name: "Rodney Og",
+                password: "1234",
+                role: "Author",
+                dateCreated: moment().format("YYYY-MM-DD HH:mm"),
+            }];
+

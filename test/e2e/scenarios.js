@@ -2,19 +2,23 @@
 
 /* http://docs.angularjs.org/guide/dev_guide.e2e-testing */
 
-describe('my app', function() {
+describe('RumAndEggBlogApp', function() {
 
   beforeEach(function() {
     browser().navigateTo('app/index.html');
   });
 
+  it('should redirect to app/index.html/blog', function() {
+    expect(browser().location().url()).toBe("app/index.html/blog");
+  });
 
-  it('should automatically redirect to /view1 when location hash/fragment is empty', function() {
-    expect(browser().location().url()).toBe("/view1");
+  it('should render the Add New Post view when the Add New Post button is clicked', function() {
+    element('#listUsers').click();
+    expect(browser().location().url()).toBe("index.html/viewUsers");
   });
 
 
-  describe('view1', function() {
+  /*describe('view1', function() {
 
     beforeEach(function() {
       browser().navigateTo('#/view1');
@@ -41,5 +45,5 @@ describe('my app', function() {
         toMatch(/partial for view 2/);
     });
 
-  });
+  });*/
 });
