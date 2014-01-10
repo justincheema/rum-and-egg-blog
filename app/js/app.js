@@ -17,6 +17,11 @@ app.config(['$routeProvider',
 			templateUrl: 'partials/addNewPost.html',
 			controller: 'AddNewPostController'
 		}).
+		when('/viewPost/:postId', 
+		{
+			templateUrl: 'partials/viewPost.html',
+			controller: 'ViewPostController'
+		}).
 		otherwise(
 		{
 			redirectTo: '/blog'

@@ -9,7 +9,7 @@ describe('MainBlogController', function(){
         $controller('MainBlogController', {$scope: scope});
     }));
 
-    it('should have button label text = "Justin\'s Rum and Egg Blog!"', function() {
+    it('should have title page text = "Justin\'s Rum and Egg Blog!"', function() {
         expect(scope.blogTitle).toBe("Justin's Rum and Egg Blog!");
     });
 
@@ -17,7 +17,11 @@ describe('MainBlogController', function(){
         expect(scope.addPostButtonLabel).toBe("Add New Post");
     });
 
-    it('should have button label text = "Current posts"', function() {
+    it('should have edit message text = "Click on any post below to view it."', function() {
+        expect(scope.editPostMessage).toBe("Click on any post below to view it.");
+    });
+
+    it('should have label text = "Current posts"', function() {
         expect(scope.currentPostsHeader).toBe("Current posts");
     });
 

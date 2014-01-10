@@ -3,6 +3,7 @@
 app.controller("MainBlogController", ["$scope", "ngTableParams", function($scope, ngTableParams) {
 		$scope.blogTitle = "Justin's Rum and Egg Blog!";
 		$scope.addPostButtonLabel = "Add New Post";
+		$scope.editPostMessage = "Click on any post below to view it.";
 		$scope.currentPostsHeader = "Current posts";
 
 		$scope.tableParams = new ngTableParams({

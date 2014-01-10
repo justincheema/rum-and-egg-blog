@@ -12,8 +12,8 @@ describe('RumAndEggBlogApp', function(){
 	    	expect($route.routes['/addNewPost'].templateUrl).toBe('partials/addNewPost.html');
 	    	expect($route.routes['/addNewPost'].controller).toBe('AddNewPostController');
 
-	    	expect($route.routes['/blog'].templateUrl).toBe('partials/blog.html');
-	    	expect($route.routes['/blog'].controller).toBe('MainBlogController');
+	    	expect($route.routes['/viewPost/:postId'].templateUrl).toBe('partials/viewPost.html');
+	    	expect($route.routes['/viewPost/:postId'].controller).toBe('ViewPostController');
 
 	    	expect($route.routes[null].redirectTo).toEqual('/blog')
     })

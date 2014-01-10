@@ -1,0 +1,49 @@
+<div class="container-fluid">
+<div class="jumbotron">
+	<div class="row">
+		<h2 class="col-md-2">{{viewPostPageLabel}}</h2>
+	</div>
+
+	<div class="row">
+		<label class="col-md-1">{{authorLabel}}</label><span>{{post.author}}</span>
+	</div>
+
+	<div ng-switch on="isView">
+		<div class="row" ng-switch-when="true">
+			<label class="col-md-1">{{subjectTextFieldLabel}}</label><span>{{post.subject}}</span>
+		</div>
+		<div class="row" ng-switch-when="false">
+			<label class="col-md-1">{{subjectTextFieldLabel}}</label>
+			<input type="text" ng-model="post.subject"></input>
+		</div>
+	</div>
+
+	<div ng-switch on="isView">
+		<div class="row" ng-switch-when="true">
+			<label class="col-md-1">{{contentTextAreaLabel}}</label><span>{{post.content}}</span>
+		</div>
+		<div class="row" ng-switch-when="false">
+			<label class="col-md-1">{{contentTextAreaLabel}}</label>
+			<textarea rows="3" ng-model="post.content"></textarea>
+		</div>
+	</div>
+	
+	<div ng-switch on="isView">
+		<div class="row" ng-switch-when="true">
+			<button type="button" class="btn btn-primary" ng-click="updatePost()">{{updatePostButtonLabel}}</button>
+
+			<button type="button" class="btn btn-danger" ng-click="cancelAction()">{{cancelButtonLabel}}</button>
+		</div>
+		<div class="row" ng-switch-when="false">
+			<button type="button" class="btn btn-primary" ng-click="doneUpdatingPost()">{{doneUpdatingPostButtonLabel}}</button>
+
+			<button type="button" class="btn btn-danger" ng-click="cancelUpdateAction()">{{cancelButtonLabel}}</button>
+		</div>
+	</div>
+
+</div>
+</div>
+
+{{isView}}
+{{post.author}}
+{{id}}

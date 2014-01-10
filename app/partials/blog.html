@@ -8,14 +8,15 @@
 	</div>
 
 	<p><h3 class="text-left">{{currentPostsHeader}}</h3></p>
+	<p>{{editPostMessage}}</p>
 
 	<div>
 		<table ng-table="tableParams" class="table table-hover">
 			<tr ng-repeat="post in postList">
-				<td data-title="'Author'" class="text-center"><a href="#addNewPost:{{post.id}}">{{post.author}}</a></td>
-				<td data-title="'Date'" class="text-center">{{post.date}}</td>
-				<td data-title="'Subject'" class="text-center">{{post.subject}}</td>
-				<td data-title="'Content'" class="text-center">{{post.content}}</td>
+				<td data-title="'Author'" class="text-center"><a href="#viewPost/{{post.id}}">{{post.author}}</a></td>
+				<td data-title="'Date'" class="text-center"><a href="#viewPost/{{post.id}}">{{post.date}}</a></td>
+				<td data-title="'Subject'" class="text-center"><a href="#viewPost/{{post.id}}">{{post.subject}}</a></td>
+				<td data-title="'Content'" class="text-center"><a href="#viewPost/{{post.id}}">{{post.content}}</a></td>
 			</tr>
 		</table>
 	</div>
