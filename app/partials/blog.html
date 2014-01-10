@@ -17,6 +17,7 @@
 				<td data-title="'Date'" class="text-center"><a href="#viewPost/{{post.id}}">{{post.date}}</a></td>
 				<td data-title="'Subject'" class="text-center"><a href="#viewPost/{{post.id}}">{{post.subject}}</a></td>
 				<td data-title="'Content'" class="text-center"><a href="#viewPost/{{post.id}}">{{post.content}}</a></td>
+				<td data-title="" class="text-center"><button type="button" class="btn btn-primary" ng-click="deletePost(post.id)">{{deleteButtonLabel}}</button></td>
 			</tr>
 		</table>
 	</div>

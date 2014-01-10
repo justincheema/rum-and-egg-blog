@@ -1,5 +1,5 @@
-<div class="container-fluid">
 <div class="jumbotron">
+	<div class="container-fluid">
 	<div class="row">
 		<h2 class="col-md-2">{{viewPostPageLabel}}</h2>
 	</div>
@@ -8,42 +8,96 @@
 		<label class="col-md-1">{{authorLabel}}</label><span>{{post.author}}</span>
 	</div>
 
-	<div ng-switch on="isView">
-		<div class="row" ng-switch-when="true">
+	<div ng-switch on="view">
+		<div class="row" ng-switch-when="viewPost">
 			<label class="col-md-1">{{subjectTextFieldLabel}}</label><span>{{post.subject}}</span>
 		</div>
-		<div class="row" ng-switch-when="false">
+		<div class="row" ng-switch-when="updatePost">
 			<label class="col-md-1">{{subjectTextFieldLabel}}</label>
 			<input type="text" ng-model="post.subject"></input>
 		</div>
 	</div>
 
-	<div ng-switch on="isView">
-		<div class="row" ng-switch-when="true">
+	<div ng-switch on="view">
+		<div class="row" ng-switch-when="viewPost">
 			<label class="col-md-1">{{contentTextAreaLabel}}</label><span>{{post.content}}</span>
 		</div>
-		<div class="row" ng-switch-when="false">
+		<div class="row" ng-switch-when="updatePost">
 			<label class="col-md-1">{{contentTextAreaLabel}}</label>
 			<textarea rows="3" ng-model="post.content"></textarea>
 		</div>
 	</div>
 	
-	<div ng-switch on="isView">
-		<div class="row" ng-switch-when="true">
+	<div ng-switch on="view">
+		<div class="row" ng-switch-when="viewPost">
 			<button type="button" class="btn btn-primary" ng-click="updatePost()">{{updatePostButtonLabel}}</button>
+
+			<button type="button" class="btn btn-primary" ng-click="addComment()">{{addCommentButtonLabel}}</button>
 
 			<button type="button" class="btn btn-danger" ng-click="cancelAction()">{{cancelButtonLabel}}</button>
 		</div>
-		<div class="row" ng-switch-when="false">
+		<div class="row" ng-switch-when="updatePost">
 			<button type="button" class="btn btn-primary" ng-click="doneUpdatingPost()">{{doneUpdatingPostButtonLabel}}</button>
 
 			<button type="button" class="btn btn-danger" ng-click="cancelUpdateAction()">{{cancelButtonLabel}}</button>
+		</div>
+		<div class="row" ng-switch-when="addComment">
+			<button type="button" class="btn btn-primary" ng-click="doneAddingComment()">{{doneAddingCommentButtonLabel}}</button>
+
+			<button type="button" class="btn btn-danger" ng-click="cancelAddComment()">{{cancelButtonLabel}}</button>
+		</div>
+		<div class="row" ng-switch-when="editComment">
+			<button type="button" class="btn btn-primary" ng-click="doneEditingComment(editCommentId)">{{doneUpdatingPostButtonLabel}}</button>
+
+			<button type="button" class="btn btn-danger" ng-click="cancelEditComment()">{{cancelButtonLabel}}</button>
+		</div>
+	</div>
+
+	<div ng-switch on="view">
+		<div class="row" ng-switch-when="viewPost">
+			<p><label>{{commentsLabel}}</label></p>
+			<div>
+				<table ng-table="commentTableParams" class="table table-hover">
+					<tr ng-repeat="comment in post.comments">
+						<td data-title="'Author'" class="text-center">{{comment.commentAuthor}}</td>
+						<td data-title="'Date'" class="text-center">{{comment.commentDate}}</td>
+						<td data-title="'Comment'" class="text-center">{{comment.text}}</td>
+						<td data-title="" class="text-center"><button type="button" class="btn btn-primary" ng-click="editComment(comment.commentId)">{{editButtonLabel}}</button></td>
+						<td data-title="" class="text-center"><button type="button" class="btn btn-primary" ng-click="deleteComment(comment.commentId)">{{deleteButtonLabel}}</button></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="row" ng-switch-when="addComment">
+			<br>
+			<label class="col-md-1">{{commentTextAreaLabel}}</label>
+			<textarea rows="3" placeholder="Enter comment"></textarea>
+		</div>
+		<div class="row" ng-switch-when="editComment">
+			<br>
+			<label class="col-md-1">{{commentTextAreaLabel}}</label>
+			<textarea rows="3" ng-model="post.comments.comment"></textarea>
 		</div>
 	</div>
 
 </div>
 </div>
 
-{{isView}}
-{{post.author}}
-{{id}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{view}}
+{{editCommentId}}

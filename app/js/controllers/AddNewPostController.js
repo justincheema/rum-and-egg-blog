@@ -15,7 +15,8 @@ app.controller("AddNewPostController", ["$scope", "$location", "$rootScope", fun
 				author: "Me for now",
 				date: moment().format("YYYY-MM-DD HH:mm"),
 				subject: $scope.PostSubject,
-				content: $scope.PostContent
+				content: $scope.PostContent,
+				comments: []
 			});
 			$location.path("/blog");
 		}

@@ -9,8 +9,8 @@ describe('ViewPostController', function(){
         $controller('ViewPostController', {$scope: scope});
     }));
 
-    it('should have an isView varaible = true', function() {
-        expect(scope.isView).toBe(true);
+    it('should have an view variable = "viewPost"', function() {
+        expect(scope.view).toBe("viewPost");
     });
 
     it('should have page title text = "View Post"', function() {
@@ -31,6 +31,10 @@ describe('ViewPostController', function(){
 
     it('should have button label text = "Update Post"', function() {
         expect(scope.updatePostButtonLabel).toBe("Update Post");
+    });
+
+    it('should have button label text = "Add Comment"', function() {
+        expect(scope.addCommentButtonLabel).toBe("Add Comment");
     });
 
     it('should have button label text = "Cancel"', function() {
